@@ -42,4 +42,5 @@ for i in range(5):
     print("Name\tHours\tRate\tGross\tFed\tState\tFICA\tNet")
     # loop through employee data list and print each employee's data
     for data in employee_data:
+    #  prints out the payroll data for a single employee in a tab-separated tuple format, with each column containing a different piece of information about the employee's pay.
         print(f'{data[0]}\t{data[1]}\t{data[2]}\t{data[3]}\t{data[5]}\t{data[6]}\t{data[7]}\t{data[9]}')
