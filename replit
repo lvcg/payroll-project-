@@ -1,0 +1,45 @@
+#Payroll program - Stephanie Kegoum Sadate & Olivia Robinson 4/25/2023
+# define constants for payroll calculations
+OT_RATE = 1.5 
+# define constants for tax rates
+FED_TAX_RATE = 0.12
+STATE_TAX_RATE = 0.05
+FICA_RATE = 0.09
+
+#initialize variables
+employee_data = []
+
+# input loop to get employee data
+for i in range(5):
+    # get employee data
+    name = input("Enter employee name: ")
+    hours = float(input("Enter hours worked: "))
+    rate = float(input("Enter hourly rate: "))
+    
+    #calculate gross pay and overtime pay
+    # if hours worked is less than or equal to 40, no overtime pay
+    if hours <= 40:
+        gross_pay = hours * rate
+        overtime_pay = 0.0
+    # if hours worked is greater than 40, calculate overtime pay    
+    else: 
+        gross_pay = 40 * rate + (hours - 40) * rate * OT_RATE
+        overtime_pay = (hours - 40) * rate * (OT_RATE - 1)
+        
+    # calculate taxes and net pay
+    fed_tax = gross_pay * FED_TAX_RATE
+    state_tax = gross_pay * STATE_TAX_RATE
+    fica = gross_pay * FICA_RATE
+    total_deductions = fed_tax + state_tax + fica
+    
+    # calculate net pay
+    net_pay = gross_pay - total_deductions
+    
+    # add employee data to list
+    employee_data.append((name, hours, rate, gross_pay, overtime pay, fed_tax, state_tax, fica, total_deductions, net_pay))
+    
+    #print output for all employees
+    print("Name\tHours\tRate\tGross\tFed\tState\tFICA\tNet")
+    # loop through employee data list and print each employee's data
+    for data in employee_data:
+        print(f'{data[0]}\t{data[1]}\t{data[2]}\t{data[3]}\t{data[5]}\t{data[6]}\t{data[7]}\t{data[9]}')
